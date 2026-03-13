@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>E-CLAP · 恩施非遗五域分层课堂</title>
+    <title>E-CLAP:恩施非遗五域分层课堂</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* ========== 全局样式（白色主题） ========== */
+        /* ========== 全局样式（响应式设计） ========== */
         * {
             margin: 0;
             padding: 0;
@@ -21,11 +21,11 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1.2rem; /* 手机端内边距稍小 */
+            padding: 0 1.2rem;
         }
         .section-title {
             text-align: center;
-            font-size: 2rem; /* 手机端标题稍小 */
+            font-size: 2rem;
             margin-bottom: 2rem;
             color: #2c3e50;
             position: relative;
@@ -60,29 +60,41 @@
             justify-content: space-between;
             align-items: center;
         }
-        .nav-logo h2 {
-            color: #ef4444;
-            font-size: 1.5rem; /* 手机端logo稍小 */
-            margin-bottom: 0.1rem;
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
         }
-        .nav-logo span {
+        .logo-img {
+            height: 40px;
+            width: auto;
+            display: block;
+            border-radius: 8px;
+        }
+        .logo-text h2 {
+            color: #ef4444;
+            font-size: 1.5rem;
+            margin-bottom: 0.1rem;
+            line-height: 1.2;
+        }
+        .logo-text span {
             color: #6c757d;
             font-size: 0.8rem;
-            display: block; /* 换行显示 */
+            display: block;
         }
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 1rem; /* 手机端间距缩小 */
+            gap: 1rem;
             align-items: center;
         }
         .nav-menu a {
             color: #495057;
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.9rem; /* 手机端文字稍小 */
+            font-size: 0.9rem;
             transition: color 0.3s;
-            padding: 0.5rem 0; /* 增加点击区域 */
+            padding: 0.5rem 0;
         }
         .nav-menu a:hover {
             color: #ef4444;
@@ -91,7 +103,7 @@
             background: linear-gradient(135deg, #ef4444, #dc2626);
             color: white;
             border: none;
-            padding: 0.5rem 1.2rem; /* 适中大小 */
+            padding: 0.5rem 1.2rem;
             border-radius: 6px;
             cursor: pointer;
             font-weight: 500;
@@ -119,7 +131,7 @@
             background: radial-gradient(circle at 20% 50%, rgba(239,68,68,0.03) 0%, transparent 50%);
         }
         .hero-content h1 {
-            font-size: 2.8rem; /* 手机端适当缩小 */
+            font-size: 2.8rem;
             background: linear-gradient(135deg, #ef4444, #f97316);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -137,29 +149,12 @@
             margin: 0 auto 1.5rem;
             padding: 0 1rem;
         }
-        .cta-btn {
-            background: linear-gradient(135deg, #ef4444, #f97316);
-            color: white;
-            border: none;
-            padding: 0.9rem 2rem; /* 增大点击区域 */
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-top: 0.5rem;
-        }
-        .cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(239,68,68,0.4);
-        }
 
-        /* 五域卡片样式 - 手机版优化 */
+        /* 五域卡片样式（首页） */
         .five-domains {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
             margin-top: 2rem;
             padding: 0 1rem;
         }
@@ -168,17 +163,33 @@
             backdrop-filter: blur(5px);
             border-radius: 12px;
             padding: 1rem;
-            width: 100%; /* 手机上占满宽度 */
-            max-width: 350px; /* 限制最大宽度 */
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             border: 1px solid rgba(233, 236, 239, 0.8);
             transition: all 0.3s;
             text-align: left;
+            display: flex;
+            flex-direction: column;
         }
         .domain-mini-card:hover {
             transform: translateY(-5px);
             border-color: #ef4444;
             box-shadow: 0 10px 25px rgba(239,68,68,0.1);
+        }
+        .card-image {
+            width: 100%;
+            height: 160px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .domain-mini-card:hover .card-image img {
+            transform: scale(1.05);
         }
         .domain-mini-card h4 {
             color: #ef4444;
@@ -213,7 +224,7 @@
         }
         .carousel-slide {
             min-width: 100%;
-            height: 250px; /* 手机上轮播高度降低 */
+            height: 250px;
             position: relative;
         }
         .carousel-slide img {
@@ -283,20 +294,20 @@
             transform: scale(1.2);
         }
 
-        /* ========== 五大创生领域卡片 ========== */
+        /* ========== 恩施五域分层课堂（仅保留图标与标题，无图片无详细文字） ========== */
         .domains {
             padding: 3rem 0;
             background: #f1f3f5;
         }
         .domains-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
         }
         .domain-card {
             background: #ffffff;
             border-radius: 12px;
-            padding: 1.2rem;
+            padding: 1.5rem 1rem;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s;
@@ -309,28 +320,32 @@
             box-shadow: 0 10px 30px rgba(239,68,68,0.1);
         }
         .domain-icon {
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 1rem;
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: white;
+            border: 3px solid white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         .heart-bg { background: linear-gradient(135deg, #ef4444, #dc2626); }
         .movement-bg { background: linear-gradient(135deg, #f59e0b, #d97706); }
         .plant-bg { background: linear-gradient(135deg, #10b981, #059669); }
         .vision-bg { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
         .sound-bg { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
-        .domain-card h3 { font-size: 1.2rem; color: #2c3e50; margin-bottom: 0.3rem; }
-        .domain-card p { color: #6c757d; font-size: 0.85rem; margin-bottom: 0.5rem; }
-        .domain-desc p {
-            font-size: 0.8rem;
-            color: #868e96;
-            padding-top: 0.5rem;
-            border-top: 1px solid #e9ecef;
+        .domain-card h3 {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 0.3rem;
+        }
+        .domain-card .subtitle {
+            color: #6c757d;
+            font-size: 0.9rem;
+            font-weight: 500;
         }
 
         /* ========== 精品课程 ========== */
@@ -340,7 +355,7 @@
         }
         .courses-grid {
             display: grid;
-            grid-template-columns: 1fr; /* 手机上单列 */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
         }
         .course-card {
@@ -461,7 +476,7 @@
             font-size: 0.9rem;
         }
 
-        /* ========== 模态框通用样式（白色主题） ========== */
+        /* ========== 模态框通用样式 ========== */
         .modal {
             display: none;
             position: fixed;
@@ -663,7 +678,7 @@
             color: #495057;
         }
 
-        /* 小屏幕下的特殊调整 */
+        /* 手机端额外优化 */
         @media (max-width: 480px) {
             .nav-menu {
                 gap: 0.8rem;
@@ -687,16 +702,53 @@
             .domain-mini-card {
                 max-width: 100%;
             }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .nav-logo {
+                gap: 0.5rem;
+            }
+            .logo-img {
+                height: 30px;
+            }
+            .logo-text h2 {
+                font-size: 1.2rem;
+            }
+            .logo-text span {
+                font-size: 0.7rem;
+            }
+        }
+
+        /* 电脑端大屏幕优化 */
+        @media (min-width: 1200px) {
+            .container {
+                padding: 0 2rem;
+            }
+            .hero-content h1 {
+                font-size: 3.5rem;
+            }
+            .hero-content h2 {
+                font-size: 1.8rem;
+            }
+            .five-domains,
+            .domains-grid,
+            .courses-grid {
+                gap: 2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- 导航栏 -->
+    <!-- 导航栏（已插入 logo 图片） -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <h2>E-CLAP</h2>
-                <span>在地声景多维创生计划</span>
+                <!-- 图片插入：左上角 Logo，使用用户提供的路径 -->
+                <img src="file:///C:/Users/21432/Desktop/网页设计/网页插图/67680b28632bab1069198bca6aaff240.png" alt="E-CLAP Logo" class="logo-img">
+                <div class="logo-text">
+                    <h2>E-CLAP</h2>
+                    <span>恩施非遗五域分层课堂</span>
+                </div>
             </div>
             <ul class="nav-menu">
                 <li><a href="#home">首页</a></li>
@@ -710,33 +762,51 @@
         </div>
     </nav>
 
-    <!-- 首页横幅（含五域介绍） -->
+    <!-- 首页横幅（五域卡片插图） -->
     <section id="home" class="hero">
         <div class="hero-content">
             <h1>E-CLAP</h1>
-            <h2>在地声景多维创生计划</h2>
+            <h2>恩施非遗五域分层课堂</h2>
             <p>五育融合 · 文化传承：打造以“五域”为主线的特色第二课堂，让文化育人深度融入精神、运动、生态、视觉、声音五大领域。</p>
-            <button class="cta-btn" onclick="scrollToCourses()">探索课程</button>
             
-            <!-- 五域详细介绍卡片 -->
             <div class="five-domains">
+                <!-- 心域卡片：使用用户提供的 be3703247deaa955faaf95bcfcf71ef9.png -->
                 <div class="domain-mini-card">
+                    <div class="card-image">
+                        <img src="file:///C:/Users/21432/Desktop/网页设计/网页插图/be3703247deaa955faaf95bcfcf71ef9.png" alt="心域插图">
+                    </div>
                     <h4>心域·红色根脉</h4>
                     <p>围绕恩施红色历史，开发双语叙事课程，将革命精神融入文化叙事，筑牢理想信念根基。</p>
                 </div>
+                <!-- 动域卡片：使用用户提供的 17e6d6ff31ae1a23cbaaa8bbc2caf980.png -->
                 <div class="domain-mini-card">
+                    <div class="card-image">
+                        <img src="file:///C:/Users/21432/Desktop/网页设计/网页插图/17e6d6ff31ae1a23cbaaa8bbc2caf980.png" alt="动域插图">
+                    </div>
                     <h4>动域·舞韵土家</h4>
                     <p>提炼土家舞蹈经典语汇，创编系列舞蹈微课，在身体律动中传承民族艺术与生活智慧。</p>
                 </div>
+                <!-- 植域卡片：使用用户提供的 ba59377c1d8e9c5f928e2380c1a26bfc.png -->
                 <div class="domain-mini-card">
-                    <h4>苗域·植育共生</h4>
+                    <div class="card-image">
+                        <img src="file:///C:/Users/21432/Desktop/网页设计/网页插图/ba59377c1d8e9c5f928e2380c1a26bfc.png" alt="植域插图">
+                    </div>
+                    <h4>植域·植育共生</h4>
                     <p>结合育苗文化与生态劳动教育，开发植物种植与民族文化关联课程，体悟人与自然和谐共生。</p>
                 </div>
+                <!-- 视域卡片：使用用户提供的 a80a6edbf0adc9ed50090ad55b2157aa.png -->
                 <div class="domain-mini-card">
+                    <div class="card-image">
+                        <img src="file:///C:/Users/21432/Desktop/网页设计/网页插图/a80a6edbf0adc9ed50090ad55b2157aa.png" alt="视域插图">
+                    </div>
                     <h4>视域·画见恩施</h4>
                     <p>以恩施山水、民族服饰与建筑为素材，开发写生与创意绘画课程，培养在地审美感知。</p>
                 </div>
+                <!-- 声域卡片：暂未提供图片，保留占位图，请用户提供后替换 -->
                 <div class="domain-mini-card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/id/102/400/200" alt="声域插图">
+                    </div>
                     <h4>声域·歌载乡情</h4>
                     <p>系统采集英译土家民歌，打造“可听、可学、可传”的声音文化景观，让母语与外语共载民族情感。</p>
                 </div>
@@ -744,10 +814,11 @@
         </div>
     </section>
 
-    <!-- 轮播图区域 -->
+    <!-- 轮播图区域（图片插入） -->
     <section class="carousel-section">
         <div class="carousel-container">
             <div class="carousel" id="carousel">
+                <!-- 图片插入：轮播图1，请替换 src -->
                 <div class="carousel-slide">
                     <img src="https://picsum.photos/id/1043/800/400" alt="心域">
                     <div class="carousel-caption">
@@ -755,6 +826,7 @@
                         <p>红色故事 - 精神领域的深度探索</p>
                     </div>
                 </div>
+                <!-- 图片插入：轮播图2，请替换 src -->
                 <div class="carousel-slide">
                     <img src="https://picsum.photos/id/165/800/400" alt="动域">
                     <div class="carousel-caption">
@@ -762,6 +834,7 @@
                         <p>土家舞蹈 - 灵动的场域艺术</p>
                     </div>
                 </div>
+                <!-- 图片插入：轮播图3，请替换 src -->
                 <div class="carousel-slide">
                     <img src="https://picsum.photos/id/306/800/400" alt="植域">
                     <div class="carousel-caption">
@@ -769,6 +842,7 @@
                         <p>育苗文化 - 植物与生态的和谐</p>
                     </div>
                 </div>
+                <!-- 图片插入：轮播图4，请替换 src -->
                 <div class="carousel-slide">
                     <img src="https://picsum.photos/id/431/800/400" alt="视域">
                     <div class="carousel-caption">
@@ -776,6 +850,7 @@
                         <p>风景绘画 - 视觉艺术的无限可能</p>
                     </div>
                 </div>
+                <!-- 图片插入：轮播图5，请替换 src -->
                 <div class="carousel-slide">
                     <img src="https://picsum.photos/id/102/800/400" alt="声域">
                     <div class="carousel-caption">
@@ -796,48 +871,49 @@
         </div>
     </section>
 
-    <!-- 五大创生领域卡片 -->
+    <!-- 恩施五域分层课堂（仅保留图标与标题，无图片无详细文字） -->
     <section class="domains" id="domains">
         <div class="container">
-            <h2 class="section-title">五大创生领域</h2>
+            <h2 class="section-title">恩施五域分层课堂</h2>
             <div class="domains-grid">
-                <div class="domain-card" data-domain="heart" onclick="scrollToSection('heart')">
+                <div class="domain-card" data-domain="heart">
                     <div class="domain-icon heart-bg"><i class="fas fa-heart"></i></div>
-                    <h3>心域</h3><p>红色故事 - 精神领域</p>
-                    <div class="domain-desc"><p>探索革命历史与精神传承</p></div>
+                    <h3>心域</h3>
+                    <div class="subtitle">红色故事·精神领域</div>
                 </div>
-                <div class="domain-card" data-domain="movement" onclick="scrollToSection('movement')">
+                <div class="domain-card" data-domain="movement">
                     <div class="domain-icon movement-bg"><i class="fas fa-dove"></i></div>
-                    <h3>动域</h3><p>土家舞蹈 - 灵动场域</p>
-                    <div class="domain-desc"><p>学习传统舞蹈的身体语言</p></div>
+                    <h3>动域</h3>
+                    <div class="subtitle">土家舞蹈·灵动场域</div>
                 </div>
-                <div class="domain-card" data-domain="plant" onclick="scrollToSection('plant')">
+                <div class="domain-card" data-domain="plant">
                     <div class="domain-icon plant-bg"><i class="fas fa-seedling"></i></div>
-                    <h3>植域</h3><p>育苗文化 - 生态和谐</p>
-                    <div class="domain-desc"><p>研究传统农耕智慧</p></div>
+                    <h3>植域</h3>
+                    <div class="subtitle">育苗文化·生态和谐</div>
                 </div>
-                <div class="domain-card" data-domain="vision" onclick="scrollToSection('vision')">
+                <div class="domain-card" data-domain="vision">
                     <div class="domain-icon vision-bg"><i class="fas fa-eye"></i></div>
-                    <h3>视域</h3><p>风景绘画 - 视觉艺术</p>
-                    <div class="domain-desc"><p>培养审美感知</p></div>
+                    <h3>视域</h3>
+                    <div class="subtitle">风景绘画·视觉艺术</div>
                 </div>
-                <div class="domain-card" data-domain="sound" onclick="scrollToSection('sound')">
+                <div class="domain-card" data-domain="sound">
                     <div class="domain-icon sound-bg"><i class="fas fa-music"></i></div>
-                    <h3>声域</h3><p>土家民歌 - 文化传承</p>
-                    <div class="domain-desc"><p>探索声音文化记忆</p></div>
+                    <h3>声域</h3>
+                    <div class="subtitle">土家民歌·文化传承</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 精品课程 -->
+    <!-- 精品课程（图片插入） -->
     <section id="courses" class="courses">
         <div class="container">
             <h2 class="section-title">精品课程</h2>
             <div class="courses-grid">
-                <!-- 心域课程 -->
+                <!-- 心域课程（图片插入） -->
                 <div class="course-card" data-domain="heart">
                     <div class="course-image">
+                        <!-- 图片插入：心域课程配图，请替换 src -->
                         <img src="https://picsum.photos/id/1043/400/200" alt="红色故事">
                         <div class="course-tag">心域</div>
                     </div>
@@ -855,9 +931,10 @@
                         </div>
                     </div>
                 </div>
-                <!-- 动域课程 -->
+                <!-- 动域课程（图片插入） -->
                 <div class="course-card" data-domain="movement">
                     <div class="course-image">
+                        <!-- 图片插入：动域课程配图，请替换 src -->
                         <img src="https://picsum.photos/id/165/400/200" alt="土家舞蹈">
                         <div class="course-tag">动域</div>
                     </div>
@@ -875,9 +952,10 @@
                         </div>
                     </div>
                 </div>
-                <!-- 植域课程 -->
+                <!-- 植域课程（图片插入） -->
                 <div class="course-card" data-domain="plant">
                     <div class="course-image">
+                        <!-- 图片插入：植域课程配图，请替换 src -->
                         <img src="https://picsum.photos/id/306/400/200" alt="育苗文化">
                         <div class="course-tag">植域</div>
                     </div>
@@ -895,9 +973,10 @@
                         </div>
                     </div>
                 </div>
-                <!-- 视域课程 -->
+                <!-- 视域课程（图片插入） -->
                 <div class="course-card" data-domain="vision">
                     <div class="course-image">
+                        <!-- 图片插入：视域课程配图，请替换 src -->
                         <img src="https://picsum.photos/id/431/400/200" alt="山水画">
                         <div class="course-tag">视域</div>
                     </div>
@@ -915,9 +994,10 @@
                         </div>
                     </div>
                 </div>
-                <!-- 声域课程 -->
+                <!-- 声域课程（图片插入） -->
                 <div class="course-card" data-domain="sound">
                     <div class="course-image">
+                        <!-- 图片插入：声域课程配图，请替换 src -->
                         <img src="https://picsum.photos/id/102/400/200" alt="民歌">
                         <div class="course-tag">声域</div>
                     </div>
@@ -1054,11 +1134,6 @@
         setInterval(() => nextSlide(), 5000);
 
         // ==================== 平滑滚动 ====================
-        window.scrollToCourses = () => document.getElementById('courses').scrollIntoView({ behavior: 'smooth' });
-        window.scrollToSection = (domain) => {
-            const cards = document.querySelectorAll('.domain-card');
-            for (let card of cards) if (card.dataset.domain === domain) { card.scrollIntoView({ behavior: 'smooth', block: 'center' }); break; }
-        };
         document.querySelectorAll('.nav-menu a').forEach(a => {
             a.addEventListener('click', (e) => {
                 e.preventDefault();
